@@ -1,0 +1,20 @@
+function revealWords(word,string){
+
+    let splitedWords = word.split(', ')
+    let splitedString = string.split(' ')
+
+    for( let words of splitedWords){
+
+        for(let el of splitedString){
+
+            if(el.includes("*") && words.length === el.length){
+
+              string = string.replace(el,words)
+            }
+        }
+    }
+    console.log(string)
+    }
+
+revealWords('great',
+'softuni is ***** place for learning new programming languages')
