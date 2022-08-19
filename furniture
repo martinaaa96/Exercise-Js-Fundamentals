@@ -1,0 +1,30 @@
+function furniture(input){
+
+    let pattern = />>(?<furniture>[A-Z][A-z]+)<<(?<price>[\d.]+)!(?<quantity>\d+)/gm;
+    let text = input.join(' ')
+    let valid;
+    let totalSum = 0; 
+    let furnitureArray = [];
+    
+    while((valid = pattern.exec(text)) !== null){
+    
+        let furniture = valid.groups['furniture'];
+        let priceOf = Number(valid.groups['price']);
+        let quantityOF = Number(valid.groups['quantity']);
+        furnitureArray.push(furniture)
+         totalSum += (priceOf * quantityOF) 
+        
+         
+    }
+    console.log(`Bought furniture:`)
+    furnitureArray.forEach(el => console.log(el))
+    console.log(`Total money spend: ${totalSum.toFixed(2)}`)
+        
+    }
+
+
+furniture(['>Invalid<<!4',
+'>Invalid<<!2',
+'>Invalid<<!5',
+'Purchase']
+)
