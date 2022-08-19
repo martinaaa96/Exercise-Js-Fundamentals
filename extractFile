@@ -1,0 +1,15 @@
+function extractFile(input){
+
+    let splitedInput = input.split('\\');
+    let elements = splitedInput.pop()
+   
+    let words = elements.split('.')
+    let fileExtension = words.pop()
+    let fileName = words.join(".")
+
+    console.log(`File name: ${fileName}`)
+    console.log(`File extension: ${fileExtension}`)
+   
+}
+
+extractFile('C:\\Internal\\training-internal\\template.bak.pptx')
