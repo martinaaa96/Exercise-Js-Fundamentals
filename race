@@ -1,0 +1,51 @@
+function race(input) {
+
+    let names = input.shift().split(', ')
+    let patternName = /[A-Z]/gi;
+    let patternKm = /\d+/gi;
+    let map = new Map;
+
+    names.forEach(el => map.set(el,0))
+
+    for (let i = 0; i < input.length; i++) {
+
+        if (input[i] === "end of race") {
+            break;
+        }
+
+        let searchName = input[i].match(patternName).join("")
+        let searchNumber = input[i].match(patternKm).join("")
+        let missingNumber = searchNumber.split("");
+
+        let kilometers = missingNumber.reduce((a, b) => Number(a) + Number(b, 0))
+
+        if (map.has(searchName)) {
+            
+            let oldQuantity = map.get(searchName)
+            let newQuantity = oldQuantity + Number(kilometers)
+            map.set(searchName, newQuantity)
+
+        }
+    }
+
+let sortedArray = Array.from(map.entries()).sort((a, b) => b[1] - a[1])
+
+let topMaster = sortedArray.slice(0,3)
+let newArray = [];
+
+for(let [key, value] of topMaster){
+   newArray.push(key)
+
+}
+console.log(`1st place: ${newArray[0]}`)
+console.log(`2nd place: ${newArray[1]}`)
+console.log(`3rd place: ${newArray[2]}`)
+}
+race(['George, Peter, Bill, Tom',
+    'G4e@55or%6g6!68e!!@ ',
+    'R1@!3a$y4456@',
+    'B5@i@#123ll',
+    'G@e54o$r6ge#',
+    '7P%et^#e5346r',
+    'T$o553m&6',
+    'end of race'])
