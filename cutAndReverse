@@ -1,0 +1,13 @@
+function cutAndReverse(input){
+
+
+    let splited = input.split("").reverse().join("")
+    let firstHalf = splited.slice(splited.length/2)
+    let ednHalf = splited.slice(0,splited.length/2)
+   
+    console.log(firstHalf)
+    console.log(ednHalf)
+    
+}
+
+cutAndReverse('tluciffiDsIsihTgnizamAoSsIsihT')
