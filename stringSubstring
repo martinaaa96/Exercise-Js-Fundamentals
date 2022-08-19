@@ -1,0 +1,17 @@
+function stringSubstring(word,sentence){
+
+    let splited = sentence.split(' ')
+    
+    for(let el of splited){
+        let lowerEl = el.toLowerCase()
+        if(lowerEl === word){
+            console.log(lowerEl)
+            return;
+       
+    }
+
+    }
+    console.log(`${word} not found!`)
+}
+stringSubstring('javascript',
+'JavaScript is the best programming language')
